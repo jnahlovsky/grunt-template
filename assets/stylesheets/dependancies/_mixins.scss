@@ -1,0 +1,138 @@
+@mixin box-sizing($box-model) {
+	-moz-box-sizing: $box-model;
+	-webkit-box-sizing: $box-model;
+	box-sizing: $box-model;
+}
+
+@mixin border-radius($radius) {
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+	background-clip: padding-box;
+}
+
+@mixin border-top-left-radius($radius) {
+	-moz-border-top-left-radius: $radius;
+	-webkit-border-top-left-radius: $radius;
+	border-top-left-radius: $radius;
+	background-clip: padding-box;
+}
+
+@mixin border-top-right-radius($radius) {
+	-moz-border-top-right-radius: $radius;
+	-webkit-border-top-right-radius: $radius;
+	border-top-right-radius: $radius;
+	background-clip: padding-box;
+}
+
+@mixin border-bottom-left-radius($radius) {
+	-moz-border-bottom-left-radius: $radius;
+	-webkit-border-bottom-left-radius: $radius;
+	border-bottom-left-radius: $radius;
+	background-clip: padding-box;
+}
+
+@mixin border-bottom-right-radius($radius) {
+	-moz-border-bottom-right-radius: $radius;
+	-webkit-border-bottom-right-radius: $radius;
+	border-bottom-right-radius: $radius;
+	background-clip: padding-box;
+}
+
+@mixin position-absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
+	position: absolute;
+	top: $top; left: $left;
+	bottom: $bottom; right: $right;
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+	-moz-transition: $transition-property $transition-time $method;
+	-webkit-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+@mixin box-shadow($horizontal: 0, $vertical: 1px, $blur: 2px, $spread: 0, $color: $color-dark-grey) {
+	-moz-box-shadow: $horizontal $vertical $blur $spread $color;
+	-webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+	box-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+@mixin inset-box-shadow($horizontal: 0, $vertical: 1px, $blur: 2px, $color: $color-dark-grey) {
+	-moz-box-shadow: inset $horizontal $vertical $blur $color;
+	-webkit-box-shadow: inset $horizontal $vertical $blur $color;
+	box-shadow: inset $horizontal $vertical $blur $color;
+}
+
+%clearfix {
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin breakpoint($min: 0, $max: 0) {
+    $type: type-of($min);
+
+    @if $type == string {
+        @if $min == xs {
+
+            // mobiles
+            @media (max-width: 767px) {
+                @content;
+            }
+        }
+
+        @else if $min == sm {
+
+            // tablets
+            @media (min-width: 768px) {
+                @content;
+            }
+        }
+
+        @else if $min == md {
+
+            // desktops
+            @media (min-width: 992px) {
+                @content;
+            }
+        }
+
+        @else if $min == lg {
+
+            // widescreen desktops
+            @media (min-width: 1200px) {
+                @content;
+            }
+        }
+
+        @else {
+            @warn 'The breakpoint mixin supports the following attributes: xs, sm, md, lg';
+        }
+    }
+    @else if $type == number {
+
+        $query: 'all' !default;
+
+        @if $min != 0 and $max != 0 {
+            $query: "(min-width: #{$min}) and (max-width: #{$max})";
+        }
+
+        @else if $min != 0 and $max == 0 {
+            $query: "(min-width: #{$min})";
+        }
+
+        @else if $min == 0 and $max != 0 {
+            $query: "(max-width: #{$max})";
+        }
+
+        @media #{$query} {
+            @content;
+        }
+    }
+}

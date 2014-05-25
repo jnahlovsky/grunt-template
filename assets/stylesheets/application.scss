@@ -1,0 +1,29 @@
+// ================================================================
+// application.scss
+//
+// import all CSS in here
+// ================================================================
+
+// ----------------------------------------------------------------
+// very important the file ./config/typography
+// is the first import due to font @import(s) needing precedence
+// ----------------------------------------------------------------
+@import 'config/typography';
+
+/* === reset - normalize === */
+@import 'vendor/normalize';
+
+@import 'dependancies/functions';
+@import 'dependancies/mixins';
+
+/* === font awesome - it's awesome === */
+@import 'vendor/font-awesome/font-awesome';
+
+@import 'config/colors';
+
+/* --- page specific styles --- */
+@import 'pages/default';
+@import 'pages/home';
+
+/* --- internet explorer hacks/fixes --- */
+@import 'legacy/ie8';

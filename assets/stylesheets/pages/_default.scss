@@ -1,0 +1,133 @@
+/* --- page defaults --- */
+
+*,
+*:after,
+*:before {
+	@include box-sizing(border-box);
+}
+
+html {
+    font-size: $font-size-base;
+}
+
+body {
+	font-family: $font-face-primary;
+	background: $color-body-background;
+	margin: 0; padding: 20px;
+}
+
+/* --- element defaults --- */
+
+.container {
+	background: $color-container-background;
+	@include border-radius(2px);
+	@include box-shadow(0, 0, 3px, 0, rgba($color-black, .15));
+	border: 1px solid rgba($color-black, .2);
+	max-width: 960px;
+	margin: 0 auto; padding: 15px;
+}
+
+h1 {
+	font-family: $font-face-tertiary;
+	font-size: em(25px);
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin: 0; padding: 0;
+
+	&:after {
+		content: ' ';
+		background: $color-light-grey;
+		width: 100%;
+		height: 1px;
+		margin: 10px 0;
+		display: block;
+	}
+}
+
+p {
+	font-size: em(14px);
+	margin: 0 0 20px 0; padding: 0;
+
+	span {
+		font-size: em(14px, 14px);
+	}
+}
+
+h2 {
+	font-family: $font-face-secondary;
+	font-size: em(25px);
+	font-weight: 300;
+	margin: 0; padding: 0;
+
+	&:after {
+		content: ' ';
+		background: $color-light-grey;
+		width: 100%;
+		height: 1px;
+		margin: 10px 0;
+		display: block;
+	}
+}
+
+/* --- labels, text input & textarea --- */
+
+label {
+    font-size: em(15px);
+    margin: 0 0 10px 0;
+    display: block;
+}
+
+.text-input {
+	font-family: $font-face-primary;
+	color: #333;
+	font-size: em(14px, 15px); /* wrapped in <label> - adjust for inherited font-size if using em units */
+	border: 1px solid $color-light-grey;
+	@include border-radius(2px);
+	margin: 5px 0 0 0; padding: 4px 8px;
+	@include transition(all, 230ms, ease-in-out);
+
+	&:focus {
+		border: 1px solid $color-light-blue;
+		@include box-shadow(0, 0, 3px, 0, rgba($color-light-blue, .5));
+	}
+}
+
+.textarea {
+	@extend .text-input;
+	margin: 5px 0 0 0; padding: 8px;
+	resize: none;
+
+	&:focus {
+		border: 1px solid $color-light-blue;
+		@include box-shadow(0, 0, 3px, 0, rgba($color-light-blue, .5))
+	}
+}
+
+/* --- buttons --- */
+
+.button {
+	font-family: $font-face-tertiary;
+	color: $color-white;
+	font-size: em(18px);
+	text-transform: uppercase;
+	font-weight: 900;
+	letter-spacing: 2px;
+    text-decoration: none;
+	background: $color-light-green;
+	@include border-radius(2px);
+	border: 0;
+	margin: 0; padding: 7px 10px;
+	display: inline-block;
+	@include transition(background, 200ms, ease-in-out);
+
+	&:hover {
+        text-decoration: none;
+		background: $color-dark-green;
+	}
+
+    .fa {
+        font-size: em(14px, 17px);
+        position: relative;
+        top: -2px;
+    }
+}

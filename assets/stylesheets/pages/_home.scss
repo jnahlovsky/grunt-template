@@ -1,0 +1,19 @@
+.text-input {
+    width: 100%;
+}
+
+.textarea {
+    width: 100%;
+}
+
+h1 {
+    @include breakpoint(xs) {
+        color: $color-light-green;
+    }
+}
+
+h2 {
+    @include breakpoint($min: 640px, $max: 1000px) {
+        color: $color-light-red;
+    }
+}

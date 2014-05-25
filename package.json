@@ -1,0 +1,16 @@
+{
+    "name": "template",
+    "version": "0.0.1",
+    "author" : "Lee Tomblin <leetomblin@gmail.com>",
+    "description": "a playground template with minimal UI elements",
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "^0.4.4",
+        "grunt-contrib-concat": "^0.4.0",
+        "grunt-contrib-connect": "^0.7.1",
+        "grunt-contrib-jshint": "~0.6.0",
+        "grunt-contrib-uglify": "^0.4.0",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-sass": "0.6.1"
+    }
+}
